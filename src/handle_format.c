@@ -6,7 +6,7 @@
 /*   By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 16:23:48 by vgoldman          #+#    #+#             */
-/*   Updated: 2019/11/17 18:28:59 by vgoldman         ###   ########.fr       */
+/*   Updated: 2019/11/18 12:46:13 by vgoldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	handle_format(char **ptr, va_list args, int *count)
 {
-	(void)count;
 	t_format format;
 
 	get_flags(ptr, &format);
@@ -22,7 +21,14 @@ void	handle_format(char **ptr, va_list args, int *count)
 	get_size(ptr, &format, args);
 	format.spec = **ptr;
 	(*ptr)++;
-	print_flags(&format);
+	send_to(args, &format, count);
+	//print_flags(&format);
+}
+
+void	send_to(va_list args, t_format *format, int *count)
+{
+	if (format->spec == 'c')
+		ft_char((char)va_arg(args, int), format, count);
 }
 
 void	print_flags(t_format *format)

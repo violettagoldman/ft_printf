@@ -6,7 +6,7 @@
 /*   By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 16:01:39 by vgoldman          #+#    #+#             */
-/*   Updated: 2019/11/17 18:11:21 by vgoldman         ###   ########.fr       */
+/*   Updated: 2019/11/18 12:33:04 by vgoldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ void			get_size(char **ptr, t_format *format, va_list args);
 int				ft_isflag(char c);
 int				ft_isdigit(char c);
 int				ft_atoi(char **str);
-void			ft_putchar(char c);
+void			ft_putnchar(char c, int n, int *count);
+int				ft_abs(int n);
+void			send_to(va_list args, t_format *format, int *count);
+void			ft_char(char c, t_format *format, int *count);
 void			print_flags(t_format *format);
 
 #endif

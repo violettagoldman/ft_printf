@@ -6,7 +6,7 @@
 /*   By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 16:13:56 by vgoldman          #+#    #+#             */
-/*   Updated: 2019/11/17 18:24:14 by vgoldman         ###   ########.fr       */
+/*   Updated: 2019/11/18 12:23:36 by vgoldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,20 @@ int		ft_atoi(char **str)
 	return (res * sign);
 }
 
-void	ft_putchar(char c)
+void	ft_putnchar(char c, int n, int *count)
 {
-	write(1, &c, 1);
+	int i;
+
+	i = 0;
+	while (i < n)
+	{
+		write(1, &c, 1);
+		(*count)++;
+		i++;
+	}
+}
+
+int		ft_abs(int n)
+{
+	return (n < 0 ? -n : n);
 }
