@@ -1,22 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   handle_ut2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/29 15:38:41 by vgoldman          #+#    #+#             */
-/*   Updated: 2019/11/18 14:57:34 by vgoldman         ###   ########.fr       */
+/*   Created: 2019/11/18 13:02:46 by vgoldman          #+#    #+#             */
+/*   Updated: 2019/11/18 13:18:12 by vgoldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h>
-#include <limits.h>
 
-int	main(void)
+void	ft_putnstr(char *str, int n, int *count)
 {
-	printf("hello, %s.\n", "gavin");
-	ft_printf("hello, %s.\n", "gavin");
-	return (0);
+	int i;
+
+	i = 0;
+	while (i < n)
+	{
+		ft_putnchar(*(str++), 1, count);
+		i++;
+	}
+}
+
+int		ft_strlen(char *str)
+{
+	int i;
+
+	i = 0;
+	while (*(str++))
+	{
+		i++;
+	}
+	return (i);
 }

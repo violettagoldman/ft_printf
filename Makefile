@@ -6,7 +6,7 @@
 #    By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/31 21:24:15 by vgoldman          #+#    #+#              #
-#    Updated: 2019/11/18 12:45:02 by vgoldman         ###   ########.fr        #
+#    Updated: 2019/11/18 13:08:58 by vgoldman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,13 @@ NAME = libftprintf.a
 
 SRC =	./src/ft_printf.c\
 		./src/handle_ut.c\
+		./src/handle_ut2.c\
 		./src/handle_format.c\
 		./src/handlers.c
 
 OBJ =	./obj/ft_printf.o\
 		./obj/handle_ut.o\
+		./obj/handle_ut2.o\
 		./obj/handle_format.o\
 		./obj/handlers.o
 

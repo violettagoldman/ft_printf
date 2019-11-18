@@ -6,7 +6,7 @@
 /*   By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 16:01:39 by vgoldman          #+#    #+#             */
-/*   Updated: 2019/11/18 12:33:04 by vgoldman         ###   ########.fr       */
+/*   Updated: 2019/11/18 14:59:19 by vgoldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ typedef struct	s_format
 	int		width;
 	int		size;
 	char	spec;
+	int		w_check;
+	int		s_check;
 }				t_format;
 
 int				ft_printf(const char *format, ...);
@@ -34,9 +36,13 @@ int				ft_isflag(char c);
 int				ft_isdigit(char c);
 int				ft_atoi(char **str);
 void			ft_putnchar(char c, int n, int *count);
+void			ft_putnstr(char *str, int n, int *count);
 int				ft_abs(int n);
+int				ft_strlen(char *str);
 void			send_to(va_list args, t_format *format, int *count);
 void			ft_char(char c, t_format *format, int *count);
+void			ft_string(char *str, t_format *format, int *count);
+void			ft_int(int i, t_format *format, int *count);
 void			print_flags(t_format *format);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 16:23:48 by vgoldman          #+#    #+#             */
-/*   Updated: 2019/11/18 12:46:13 by vgoldman         ###   ########.fr       */
+/*   Updated: 2019/11/18 13:30:34 by vgoldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	handle_format(char **ptr, va_list args, int *count)
 {
 	t_format format;
 
+	format.w_check = 0;
+	format.s_check = 0;
 	get_flags(ptr, &format);
 	get_width(ptr, &format, args);
 	get_size(ptr, &format, args);
@@ -29,6 +31,8 @@ void	send_to(va_list args, t_format *format, int *count)
 {
 	if (format->spec == 'c')
 		ft_char((char)va_arg(args, int), format, count);
+	if (format->spec == 's')
+		ft_string(va_arg(args, char*), format, count);
 }
 
 void	print_flags(t_format *format)
@@ -43,8 +47,8 @@ void	print_flags(t_format *format)
 		i++;
 	}
 	printf("spec == %c\n", format->spec);
-	printf("width == %d\n", format->width);
-	printf("size == %d\n", format->size);
+	printf("width == %d && %d\n", format->width, format->w_check);
+	printf("size == %d  && %d\n", format->size, format->s_check);
 }
 
 void	get_flags(char **ptr, t_format *format)
@@ -78,9 +82,13 @@ void	get_width(char **ptr, t_format *format, va_list args)
 	{
 		format->width = va_arg(args, int);
 		(*ptr)++;
+		format->w_check = 1;
 	}
-	else
+	else if (ft_isdigit(**ptr))
+	{
 		format->width = ft_atoi(ptr);
+		format->w_check = 1;
+	}
 }
 
 void	get_size(char **ptr, t_format *format, va_list args)
@@ -95,5 +103,6 @@ void	get_size(char **ptr, t_format *format, va_list args)
 		}
 		else
 			format->size = ft_atoi(ptr);
+		format->s_check = 1;
 	}
 }
