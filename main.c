@@ -6,7 +6,7 @@
 /*   By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 15:38:41 by vgoldman          #+#    #+#             */
-/*   Updated: 2019/11/18 14:57:34 by vgoldman         ###   ########.fr       */
+/*   Updated: 2019/11/19 13:31:44 by vgoldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int	main(void)
 {
-	printf("hello, %s.\n", "gavin");
-	ft_printf("hello, %s.\n", "gavin");
+	printf("|%8.5d|\n", -216);
+	ft_printf("|%8.5d|\n", -216);
 	return (0);
 }

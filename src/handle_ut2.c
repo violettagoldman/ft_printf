@@ -6,7 +6,7 @@
 /*   By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 13:02:46 by vgoldman          #+#    #+#             */
-/*   Updated: 2019/11/18 13:18:12 by vgoldman         ###   ########.fr       */
+/*   Updated: 2019/11/19 13:31:34 by vgoldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,41 @@ int		ft_strlen(char *str)
 		i++;
 	}
 	return (i);
+}
+
+void	ft_putnbr(long long nb, int *count)
+{
+	long long a;
+
+	a = nb;
+	if (a < 0)
+	{
+		a = a * (-1);
+		ft_putnchar('-', 1, count);
+	}
+	if (a > 9)
+	{
+		ft_putnbr(a / 10, count);
+		ft_putnchar(a % 10 + '0', 1, count);
+	}
+	else
+		ft_putnchar(a + '0', 1, count);
+}
+
+int		len_nb(long long n)
+{
+	int i;
+
+	i = 0;
+	if (n < 0)
+	{
+		n *= -1;
+		i++;
+	}
+	while (n >= 10)
+	{
+		n /= 10;
+		i++;
+	}
+	return (i + 1);
 }
