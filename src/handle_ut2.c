@@ -6,7 +6,7 @@
 /*   By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 13:02:46 by vgoldman          #+#    #+#             */
-/*   Updated: 2019/11/19 13:31:34 by vgoldman         ###   ########.fr       */
+/*   Updated: 2019/11/22 16:09:05 by vgoldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,7 @@ void	ft_putnbr(long long nb, int *count)
 
 	a = nb;
 	if (a < 0)
-	{
 		a = a * (-1);
-		ft_putnchar('-', 1, count);
-	}
 	if (a > 9)
 	{
 		ft_putnbr(a / 10, count);

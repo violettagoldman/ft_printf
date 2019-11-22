@@ -6,7 +6,7 @@
 /*   By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 12:12:15 by vgoldman          #+#    #+#             */
-/*   Updated: 2019/11/20 10:52:39 by vgoldman         ###   ########.fr       */
+/*   Updated: 2019/11/22 16:23:17 by vgoldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,28 +47,41 @@ void	ft_string(char *str, t_format *format, int *count)
 void	ft_int(int i, t_format *format, int *count)
 {
 	int fill_spaces;
-	int fill_o;
+	int fill_zero;
 
-	fill_spaces = (format->width * format->w_check) -
-		(format->size * format->s_check) - len_nb((long long)i);
-	fill_o = (format->size - len_nb((long long)i)) * format->s_check;
-	if (format->w_check == 1 && format->s_check == 1)
+	fill_spaces = 0;
+	fill_zero = 0;
+	if (format->size == 0 && format->s_check && i == 0)
+		format->flags[1] = 0;
+	if (format->size > len_nb((long long)i) || (format->flags[1] && format->s_check))
+		fill_zero = ft_abs(format->size) - len_nb((long long)i) + (i < 0);
+	else if (format->flags[1])
+		fill_zero = ft_abs(format->width) - len_nb((long long)i) + (i < 0);
+	
+	if (ft_abs(format->width) > len_nb((long long)i) + fill_zero)
+		fill_spaces = ft_abs(format->width) - len_nb((long long)i) - fill_zero;
+	
+	if (format->size == 0 && format->s_check && i == 0)
 	{
-		fill_spaces = format->width - format->size;
-		if (i < 0)
-			fill_spaces--;
+		format->flags[1] = 0;
+		fill_spaces++;
 	}
-	if (format->flags[1] == 0)
-		ft_putnchar(' ', fill_spaces * (1 - format->flags[0]) , count);
-	if (i < 0 && (format->flags[1] == 1 || format->s_check))
-	{
-		i *= -1;
+	if (!(format->flags[0]) && !(format->flags[1]))
+		ft_putnchar(' ', fill_spaces, count);
+	
+	if (i < 0)
 		ft_putnchar('-', 1, count);
-	}
-	if (format->flags[1] && format->s_check == 0)
-		ft_putnchar('0', fill_spaces * format->flags[1], count);
-	else if (format->s_check == 1)
-		ft_putnchar('0', format->size - len_nb((long long)i), count);
-	ft_putnbr((long long)i, count);
-	ft_putnchar(' ', fill_spaces * format->flags[0], count);
+	
+	if (!(format->flags[0]) && format->flags[1])
+		ft_putnchar('0', fill_spaces, count);
+	
+	if (i >= 0 && (format->flags[2] || format->flags[3]))
+		ft_putnchar((format->flags[2] ? '+' : ' '), 1, count);
+	
+	ft_putnchar('0', fill_zero, count);
+	//if (format->size|| i != 0)
+		ft_putnbr(i, count);
+	
+	if (format->flags[0])
+		ft_putnchar(' ', fill_spaces, count);
 }

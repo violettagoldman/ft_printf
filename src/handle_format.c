@@ -6,7 +6,7 @@
 /*   By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 16:23:48 by vgoldman          #+#    #+#             */
-/*   Updated: 2019/11/19 11:37:15 by vgoldman         ###   ########.fr       */
+/*   Updated: 2019/11/22 16:19:52 by vgoldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	handle_format(char **ptr, va_list args, int *count)
 
 	format.w_check = 0;
 	format.s_check = 0;
+	format.size = 0;
+	format.width = 0;
 	get_flags(ptr, &format);
 	get_width(ptr, &format, args);
 	get_size(ptr, &format, args);

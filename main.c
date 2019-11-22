@@ -6,7 +6,7 @@
 /*   By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 15:38:41 by vgoldman          #+#    #+#             */
-/*   Updated: 2019/11/20 10:54:20 by vgoldman         ###   ########.fr       */
+/*   Updated: 2019/11/22 16:13:18 by vgoldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int	main(void)
 {
-	printf("|%8.3d|\n", 8375);
-	ft_printf("|%8.3d|\n", 8375);
+	printf("|this %d number|\n", 10);
+	ft_printf("|this %d number|\n", 10);
 	return (0);
 }
