@@ -6,7 +6,7 @@
 /*   By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 16:23:48 by vgoldman          #+#    #+#             */
-/*   Updated: 2019/11/22 16:19:52 by vgoldman         ###   ########.fr       */
+/*   Updated: 2019/11/22 17:31:13 by vgoldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	send_to(va_list args, t_format *format, int *count)
 		ft_string(va_arg(args, char*), format, count);
 	else if (format->spec == 'c')
 		ft_char('%', format, count);
-	else if (format->spec == 'd')
+	else if (format->spec == 'd' || format->spec == 'i')
 		ft_int(va_arg(args, int), format, count);
 }
 
