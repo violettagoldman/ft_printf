@@ -6,7 +6,7 @@
 #    By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/31 21:24:15 by vgoldman          #+#    #+#              #
-#    Updated: 2019/11/18 13:08:58 by vgoldman         ###   ########.fr        #
+#    Updated: 2019/11/24 13:22:04 by vgoldman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,15 @@ SRC =	./src/ft_printf.c\
 		./src/handle_ut.c\
 		./src/handle_ut2.c\
 		./src/handle_format.c\
-		./src/handlers.c
+		./src/handlers.c\
+		./src/handlers_2.c
 
 OBJ =	./obj/ft_printf.o\
 		./obj/handle_ut.o\
 		./obj/handle_ut2.o\
 		./obj/handle_format.o\
-		./obj/handlers.o
+		./obj/handlers.o\
+		./obj/handlers_2.o
 
 FLAGS = -Werror -Wall -Wextra
 

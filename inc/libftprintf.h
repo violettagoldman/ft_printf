@@ -6,7 +6,7 @@
 /*   By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 16:01:39 by vgoldman          #+#    #+#             */
-/*   Updated: 2019/11/19 11:18:26 by vgoldman         ###   ########.fr       */
+/*   Updated: 2019/11/24 13:19:29 by vgoldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,20 @@ int				ft_isdigit(char c);
 int				ft_atoi(char **str);
 void			ft_putnchar(char c, int n, int *count);
 void			ft_putnstr(char *str, int n, int *count);
-int				len_nb(long long n);
+int				len_nb(long int n);
 int				ft_abs(int n);
 int				ft_strlen(char *str);
 void			send_to(va_list args, t_format *format, int *count);
-void			ft_putnbr(long long nb, int *count);
+void			ft_putnbr(long int nb, int *count);
+void			ft_putnbr_hexa(long int nb, int *count, char *str);
 void			ft_char(char c, t_format *format, int *count);
 void			ft_string(char *str, t_format *format, int *count);
-void			ft_int(int i, t_format *format, int *count);
+void			ft_int(long int i, t_format *format, int *count);
 void			print_flags(t_format *format);
+void			ft_int_help(long int i, t_format *format, int *fill_spaces,
+				int *fill_zero);
+void			ft_unsigned_int(long int i, t_format *format, int *count);
+void			ft_hexa(long int i, t_format *format, int *count, char *str);
+void			ft_hexa_help(long int i, t_format *format, int *fill_spaces,
+				int *fill_zero);
 #endif

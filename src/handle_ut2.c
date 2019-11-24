@@ -6,7 +6,7 @@
 /*   By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 13:02:46 by vgoldman          #+#    #+#             */
-/*   Updated: 2019/11/22 16:09:05 by vgoldman         ###   ########.fr       */
+/*   Updated: 2019/11/24 13:23:02 by vgoldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ int		ft_strlen(char *str)
 	return (i);
 }
 
-void	ft_putnbr(long long nb, int *count)
+void	ft_putnbr(long int nb, int *count)
 {
-	long long a;
+	long int a;
 
 	a = nb;
 	if (a < 0)
@@ -52,7 +52,7 @@ void	ft_putnbr(long long nb, int *count)
 		ft_putnchar(a + '0', 1, count);
 }
 
-int		len_nb(long long n)
+int		len_nb(long int n)
 {
 	int i;
 
@@ -69,3 +69,20 @@ int		len_nb(long long n)
 	}
 	return (i + 1);
 }
+
+void	ft_putnbr_hexa(long int nb, int *count, char *str)
+{
+	long int a;
+
+	a = nb;
+	if (a < 0)
+		a = a * (-1);
+	if (a > 15)
+	{
+		ft_putnbr_hexa(a / 16, count, str);
+		ft_putnchar(*(a % 16 + str), 1, count);
+	}
+	else
+		ft_putnchar(*(a + str), 1, count);
+}
+
