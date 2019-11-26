@@ -6,7 +6,7 @@
 /*   By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 13:02:46 by vgoldman          #+#    #+#             */
-/*   Updated: 2019/11/24 13:23:02 by vgoldman         ###   ########.fr       */
+/*   Updated: 2019/11/26 10:10:50 by vgoldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,3 @@ void	ft_putnbr_hexa(long int nb, int *count, char *str)
 	else
 		ft_putnchar(*(a + str), 1, count);
 }
-

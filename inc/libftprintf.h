@@ -6,7 +6,7 @@
 /*   By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 16:01:39 by vgoldman          #+#    #+#             */
-/*   Updated: 2019/11/24 22:21:12 by vgoldman         ###   ########.fr       */
+/*   Updated: 2019/11/26 10:13:22 by vgoldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>
-# include <stdio.h>
 
 typedef struct	s_format
 {
@@ -46,13 +45,11 @@ void			ft_putnbr_hexa(long int nb, int *count, char *str);
 void			ft_char(char c, t_format *format, int *count);
 void			ft_string(char *str, t_format *format, int *count);
 void			ft_int(long int i, t_format *format, int *count);
-void			print_flags(t_format *format);
-void			ft_int_help(long int i, t_format *format, int *fill_spaces,
+void			ft_help(long int i, t_format *format, int *fill_spaces,
 				int *fill_zero);
 void			ft_unsigned_int(long int i, t_format *format, int *count);
-void			ft_hexa(long int i, t_format *format, int *count, char *str,
-				char *m);
-void			ft_hexa_help(long int i, t_format *format, int *fill_spaces,
+void			ft_hexa(long int i, t_format *format, int *count, char *str);
+void			ft_hh(long int i, t_format *format, int *fill_spaces,
 				int *fill_zero);
 int				len_nb_hexa(long int i, t_format *format);
 void			ft_pointer(long int i, t_format *format, int *count);

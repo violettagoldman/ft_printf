@@ -6,7 +6,7 @@
 /*   By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 12:12:15 by vgoldman          #+#    #+#             */
-/*   Updated: 2019/11/24 23:18:42 by vgoldman         ###   ########.fr       */
+/*   Updated: 2019/11/26 10:08:46 by vgoldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,14 @@ void	ft_string(char *str, t_format *format, int *count)
 		ft_string("(null)", format, count);
 		return ;
 	}
-	if (ft_abs(format->size) < ft_strlen(str) && format->s_check == 1 && format->size >= 0)
+	if (ft_abs(format->size) < ft_strlen(str) && format->s_check == 1 &&
+		format->size >= 0)
 		print_len = ft_abs(format->size);
 	else
 		print_len = ft_strlen(str);
 	fill_spaces = ft_abs(format->width) - print_len;
-	ft_putnchar((format->flags[1] ? '0' : ' '), fill_spaces * (1 - format->flags[0]), count);
+	ft_putnchar((format->flags[1] ? '0' : ' '), fill_spaces *
+		(1 - format->flags[0]), count);
 	ft_putnstr(str, print_len, count);
 	ft_putnchar(' ', fill_spaces * format->flags[0], count);
 }
@@ -53,7 +55,7 @@ void	ft_int(long int i, t_format *format, int *count)
 
 	fill_spaces = 0;
 	fill_zero = 0;
-	ft_int_help(i, format, &fill_spaces, &fill_zero);
+	ft_help(i, format, &fill_spaces, &fill_zero);
 	if (!(format->flags[0]) && !(format->flags[1]))
 		ft_putnchar(' ', fill_spaces, count);
 	if (i < 0)
@@ -69,7 +71,7 @@ void	ft_int(long int i, t_format *format, int *count)
 		ft_putnchar(' ', fill_spaces, count);
 }
 
-void ft_int_help(long int i, t_format *format, int *fill_spaces, int *fill_zero)
+void	ft_help(long int i, t_format *format, int *fill_spaces, int *fill_zero)
 {
 	if ((format->size == 0 && format->s_check && i == 0)
 		|| (format->s_check && format->size > 0)

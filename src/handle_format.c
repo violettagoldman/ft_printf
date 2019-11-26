@@ -6,7 +6,7 @@
 /*   By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 16:23:48 by vgoldman          #+#    #+#             */
-/*   Updated: 2019/11/24 22:20:34 by vgoldman         ###   ########.fr       */
+/*   Updated: 2019/11/26 09:43:15 by vgoldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void	handle_format(char **ptr, va_list args, int *count)
 	get_width(ptr, &format, args);
 	get_size(ptr, &format, args);
 	format.spec = **ptr;
-	(*ptr)++;
+	if (**ptr != '\0')
+		(*ptr)++;
 	send_to(args, &format, count);
-	//print_flags(&format);
 }
 
 void	send_to(va_list args, t_format *format, int *count)
@@ -44,27 +44,11 @@ void	send_to(va_list args, t_format *format, int *count)
 	else if (format->spec == 'u')
 		ft_unsigned_int(va_arg(args, long int), format, count);
 	else if (format->spec == 'x')
-		ft_hexa(va_arg(args, int), format, count, "0123456789abcdef", "0x");
+		ft_hexa(va_arg(args, int), format, count, "0123456789abcdef");
 	else if (format->spec == 'X')
-		ft_hexa(va_arg(args, int), format, count, "0123456789ABCDEF", "0X");
+		ft_hexa(va_arg(args, int), format, count, "0123456789ABCDEF");
 	else if (format->spec == 'p')
 		ft_pointer(va_arg(args, long int), format, count);
-}
-
-void	print_flags(t_format *format)
-{
-	int i;
-
-	i = 0;
-	puts("");
-	while (i < 6)
-	{
-		printf("flags[%d] == %d\n", i, format->flags[i]);
-		i++;
-	}
-	printf("spec == %c\n", format->spec);
-	printf("width == %d && %d\n", format->width, format->w_check);
-	printf("size == %d  && %d\n", format->size, format->s_check);
 }
 
 void	get_flags(char **ptr, t_format *format)
