@@ -6,7 +6,7 @@
 #    By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/31 21:24:15 by vgoldman          #+#    #+#              #
-#    Updated: 2019/11/24 13:22:04 by vgoldman         ###   ########.fr        #
+#    Updated: 2019/11/26 07:41:16 by vgoldman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,14 +17,16 @@ SRC =	./src/ft_printf.c\
 		./src/handle_ut2.c\
 		./src/handle_format.c\
 		./src/handlers.c\
-		./src/handlers_2.c
+		./src/handlers2.c\
+		./src/handle_ut3.c
 
 OBJ =	./obj/ft_printf.o\
 		./obj/handle_ut.o\
 		./obj/handle_ut2.o\
 		./obj/handle_format.o\
 		./obj/handlers.o\
-		./obj/handlers_2.o
+		./obj/handlers2.o\
+		./obj/handle_ut3.o
 
 FLAGS = -Werror -Wall -Wextra
 
@@ -49,7 +51,7 @@ ${NAME}:${OBJ}
 	@gcc ${FLAGS} -I./inc/ -c $< -o $@
 
 clean:
-	@rm -rf ${OBJS} a.out a.out.dSYM
+	@rm -rf ${OBJ} a.out a.out.dSYM
 	@echo "\033[32;1mCleaned \xE2\x9C\x94\033[0m"
 
 fclean: clean

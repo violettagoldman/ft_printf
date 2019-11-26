@@ -6,7 +6,7 @@
 /*   By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 16:01:39 by vgoldman          #+#    #+#             */
-/*   Updated: 2019/11/24 13:19:29 by vgoldman         ###   ########.fr       */
+/*   Updated: 2019/11/24 22:21:12 by vgoldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,10 @@ void			print_flags(t_format *format);
 void			ft_int_help(long int i, t_format *format, int *fill_spaces,
 				int *fill_zero);
 void			ft_unsigned_int(long int i, t_format *format, int *count);
-void			ft_hexa(long int i, t_format *format, int *count, char *str);
+void			ft_hexa(long int i, t_format *format, int *count, char *str,
+				char *m);
 void			ft_hexa_help(long int i, t_format *format, int *fill_spaces,
 				int *fill_zero);
+int				len_nb_hexa(long int i, t_format *format);
+void			ft_pointer(long int i, t_format *format, int *count);
 #endif

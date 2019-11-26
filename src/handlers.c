@@ -6,7 +6,7 @@
 /*   By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 12:12:15 by vgoldman          #+#    #+#             */
-/*   Updated: 2019/11/24 12:39:05 by vgoldman         ###   ########.fr       */
+/*   Updated: 2019/11/24 23:18:42 by vgoldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,18 @@ void	ft_string(char *str, t_format *format, int *count)
 	int fill_spaces;
 	int print_len;
 
+	if (format->size < 0 || format->width < 0)
+		format->flags[0] = 1;
 	if (str == NULL)
 	{
 		ft_string("(null)", format, count);
 		return ;
 	}
-	if (ft_abs(format->size < ft_strlen(str) && format->s_check == 1))
+	if (ft_abs(format->size) < ft_strlen(str) && format->s_check == 1 && format->size >= 0)
 		print_len = ft_abs(format->size);
 	else
 		print_len = ft_strlen(str);
-	fill_spaces = format->width - print_len;
+	fill_spaces = ft_abs(format->width) - print_len;
 	ft_putnchar((format->flags[1] ? '0' : ' '), fill_spaces * (1 - format->flags[0]), count);
 	ft_putnstr(str, print_len, count);
 	ft_putnchar(' ', fill_spaces * format->flags[0], count);
