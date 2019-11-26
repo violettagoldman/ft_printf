@@ -6,7 +6,7 @@
 #    By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/31 21:24:15 by vgoldman          #+#    #+#              #
-#    Updated: 2019/11/26 09:38:31 by vgoldman         ###   ########.fr        #
+#    Updated: 2019/11/26 10:19:08 by vgoldman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,7 @@ clean:
 	@echo "\033[32;1mCleaned \xE2\x9C\x94\033[0m"
 
 fclean: clean
-		@rm -rf ${NAME}
+		@rm -rf ${NAME} obj
 		@echo "\033[32;1mForced cleaned \xE2\x9C\x94\033[0m"
 
 re: fclean all
