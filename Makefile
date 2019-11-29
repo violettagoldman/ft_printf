@@ -6,7 +6,7 @@
 #    By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/31 21:24:15 by vgoldman          #+#    #+#              #
-#    Updated: 2019/11/26 10:19:08 by vgoldman         ###   ########.fr        #
+#    Updated: 2019/11/29 15:15:00 by vgoldman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,8 @@ norme:
 	@echo "\033[0;32mChecking the norme...\033[0m"
 	@norminette ./src/*.c
 	@norminette ./includes/*.h
+
+bonus: all
 
 ${NAME}:${OBJ}
 		@printf "\033[0;32mMaking the library...\033[0m\r"

@@ -6,7 +6,7 @@
 /*   By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 12:12:15 by vgoldman          #+#    #+#             */
-/*   Updated: 2019/11/29 13:26:39 by vgoldman         ###   ########.fr       */
+/*   Updated: 2019/11/29 15:10:15 by vgoldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_string(char *str, t_format *format, int *count)
 	int fill_spaces;
 	int print_len;
 
-	if (format->size < 0 || format->width < 0)
+	if (format->width < 0)
 		format->flags[0] = 1;
 	if (str == NULL)
 	{
@@ -100,7 +100,6 @@ void	ft_help(long int i, t_format *format, int *fill_spaces, int *fill_zero)
 		format->flags[1] = 0;
 		(*fill_spaces)++;
 	}
-	//printf("(%d|%d)", len_nb(i), *fill_zero);
 }
 
 void	ft_unsigned_int(long int i, t_format *format, int *count)
