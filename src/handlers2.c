@@ -21,6 +21,8 @@ void	ft_hexa(long int i, t_format *format, int *count, char *str)
 	fill_zero = 0;
 	if (i < 0)
 		i += 4294967296;
+	if (format->s_check && format->size == 0 && format->flags[1])
+		format->flags[1] = 0;
 	ft_hh(i, format, &fill_spaces, &fill_zero);
 	if (!(format->flags[0]) && !(format->flags[1]))
 		ft_putnchar(' ', fill_spaces, count);
@@ -43,15 +45,19 @@ void	ft_hh(long int i, t_format *format, int *fill_spaces, int *fill_zero)
 		format->flags[1] = 0;
 	if (format->width < 0)
 		format->flags[0] = 1;
-	if (format->size > len_nb_hexa(i, format)
-		|| (format->flags[1] && format->s_check))
-		*fill_zero = ft_abs(format->size) - len_nb_hexa(i, format) + (i < 0);
-	else if (format->flags[1] && format->width > 0)
+	if (format->flags[1] && format->width > 0)
 		*fill_zero = ft_abs(format->width) - len_nb_hexa(i, format);
+	else if (format->size > len_nb_hexa(i, format)
+		|| (format->flags[1] && format->s_check && format->w_check))
+	{
+		*fill_zero = ft_abs(format->size) - len_nb_hexa(i, format) +
+			(i < 0 && format->size > 0);
+	}
 	if (ft_abs(format->width) > len_nb_hexa(i, format) + *fill_zero)
 		*fill_spaces = ft_abs(format->width) - len_nb_hexa(i, format)
-			- *fill_zero;
-	if (format->size == 0 && format->s_check && i == 0 && *fill_spaces)
+			- (*fill_zero < 0 ? 0 : *fill_zero);
+	if (format->size == 0 && format->s_check && i == 0 && format->w_check
+			&& format->width != 0)
 	{
 		format->flags[1] = 0;
 		(*fill_spaces)++;
