@@ -6,7 +6,7 @@
 /*   By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 16:01:39 by vgoldman          #+#    #+#             */
-/*   Updated: 2019/11/26 10:13:22 by vgoldman         ###   ########.fr       */
+/*   Updated: 2019/11/29 11:26:00 by vgoldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>
-
+# include <stdio.h>
 typedef struct	s_format
 {
 	int		flags[6];

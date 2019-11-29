@@ -1,36 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/17 17:42:33 by vgoldman          #+#    #+#             */
-/*   Updated: 2019/11/29 11:06:55 by vgoldman         ###   ########.fr       */
+/*   Created: 2019/11/29 11:12:39 by vgoldman          #+#    #+#             */
+/*   Updated: 2019/11/29 13:23:42 by vgoldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+#include <stdio.h>
 
-int		ft_printf(const char *format, ...)
+int		main(void)
 {
-	int		count;
-	char	*ptr;
-	va_list args;
-
-	count = 0;
-	ptr = (char *)format;
-	va_start(args, format);
-	while (*ptr)
-	{
-		if (*ptr == '%')
-		{
-			ptr++;
-			handle_format(&ptr, args, &count);
-		}
-		else
-			ft_putnchar(*(ptr++), 1, &count);
-	}
-	va_end(args);
-	return (count);
+	printf("%0*.*d\n", 1, 10, -159286422);
+	ft_printf("%0*.*d", 1, 10, -159286422);
+	return (0);
 }
