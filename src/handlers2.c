@@ -6,7 +6,7 @@
 /*   By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 09:37:54 by vgoldman          #+#    #+#             */
-/*   Updated: 2019/11/29 15:09:32 by vgoldman         ###   ########.fr       */
+/*   Updated: 2019/12/02 14:51:54 by vgoldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_hh(long int i, t_format *format, int *fill_spaces, int *fill_zero)
 {
 	if ((format->size == 0 && format->s_check && i == 0)
 		|| (format->s_check && format->size > 0)
-			|| (format->width < 0 && format->size < 0))
+			|| (format->width < len_nb_hexa(i, format) && format->size < 0))
 		format->flags[1] = 0;
 	if (format->width < 0)
 		format->flags[0] = 1;

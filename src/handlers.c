@@ -6,7 +6,7 @@
 /*   By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 12:12:15 by vgoldman          #+#    #+#             */
-/*   Updated: 2019/12/02 14:24:59 by vgoldman         ###   ########.fr       */
+/*   Updated: 2019/12/02 14:50:43 by vgoldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	ft_help(long int i, t_format *format, int *fill_spaces, int *fill_zero)
 {
 	if ((format->size == 0 && format->s_check && i == 0)
 		|| (format->s_check && format->size > 0)
-			|| (format->width < 0 && format->size < 0))
+			|| (format->width < len_nb(i) && format->size < 0))
 		format->flags[1] = 0;
 	if (format->width < 0)
 		format->flags[0] = 1;
