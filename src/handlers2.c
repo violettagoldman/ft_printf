@@ -54,8 +54,10 @@ void	ft_hh(long int i, t_format *format, int *fill_spaces, int *fill_zero)
 			(i < 0 && format->size > 0);
 	}
 	if (ft_abs(format->width) > len_nb_hexa(i, format) + *fill_zero)
+	{
 		*fill_spaces = ft_abs(format->width) - len_nb_hexa(i, format)
 			- (*fill_zero < 0 ? 0 : *fill_zero);
+	}
 	if (format->size == 0 && format->s_check && i == 0 && format->w_check
 			&& format->width != 0)
 	{

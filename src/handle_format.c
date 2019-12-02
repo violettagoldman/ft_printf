@@ -6,7 +6,7 @@
 /*   By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 16:23:48 by vgoldman          #+#    #+#             */
-/*   Updated: 2019/11/26 09:43:15 by vgoldman         ###   ########.fr       */
+/*   Updated: 2019/12/02 14:27:36 by vgoldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	send_to(va_list args, t_format *format, int *count)
 	else if (format->spec == 'd' || format->spec == 'i')
 		ft_int(va_arg(args, int), format, count);
 	else if (format->spec == 'u')
-		ft_unsigned_int(va_arg(args, long int), format, count);
+		ft_unsigned_int(va_arg(args, int), format, count);
 	else if (format->spec == 'x')
 		ft_hexa(va_arg(args, int), format, count, "0123456789abcdef");
 	else if (format->spec == 'X')
