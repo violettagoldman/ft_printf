@@ -6,7 +6,7 @@
 #    By: vgoldman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/31 21:24:15 by vgoldman          #+#    #+#              #
-#    Updated: 2019/11/29 16:44:07 by vgoldman         ###   ########.fr        #
+#    Updated: 2019/12/03 11:30:46 by vgoldman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ FLAGS = -Werror -Wall -Wextra
 all: ${NAME}
 
 test: ${NAME} main.c
-	@gcc ${FLAGS} -g3 -fsanitize=address -I./inc/ -L. -lftprintf main.c && ./a.out
+	@gcc ${FLAGS} -I./inc/ -L. -lftprintf main.c && ./a.out
 
 norme:
 	@echo "\033[0;32mChecking the norme...\033[0m"
@@ -57,7 +57,7 @@ clean:
 	@echo "\033[32;1mCleaned \xE2\x9C\x94\033[0m"
 
 fclean: clean
-		@rm -rf ${NAME} obj
+		@rm -rf ${NAME} obj main.c
 		@echo "\033[32;1mForced cleaned \xE2\x9C\x94\033[0m"
 
 re: fclean all
